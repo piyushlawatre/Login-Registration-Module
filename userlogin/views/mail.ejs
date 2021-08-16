@@ -1,0 +1,60 @@
+<style>
+    button {
+        font-size: 15px;
+        margin: 0px;
+        background-color: #549df2;
+        font-size: 15px;
+        margin: 0px;
+        font-weight: bold;
+        color: white;
+        padding: 14px 30px;
+        text-align: center;
+        cursor: pointer;
+        text-decoration: none;
+        border-radius: 5px;
+        display: inline-block;
+    }
+
+    p {
+        font-size: 15px;
+    }
+</style>
+
+<body>
+    <nav>
+        <a href="https://coditas.com/">
+            <img src="https://coditas.com/images/logos/Web%20Logo%20-%20blue.png" width="100" height="50" alt="">
+        </a>
+    </nav>
+    <hr>
+    <br>
+    <p style="font-size: 15px;">
+        Hi there,<br><br>
+            We're almost done. At Coditas, we are all about safety.You just need to verify your Coditas Central
+            account, and you are good to go.<br><br>
+            Please click on the button below to verify your account.
+    </p><br>
+
+    <form action=http://localhost:8000/user/isverfied?email=<%= emailid %> method="POST">
+        <button style=" font-size: 15px;
+        margin: 0px;
+        background-color: #549df2;
+        font-size: 15px;
+        margin: 0px;
+        font-weight: bold;
+        color: white;
+        padding: 14px 30px;
+        text-align: center;
+        cursor: pointer;
+        text-decoration: none;
+        border-radius: 5px;
+        display: inline-block;" type="submit" name="your_name" value="your_value" onclick="yourFunction()">Verify
+            now</button>
+    </form>
+    <p style="font-size: 15px;">Thanks for choosing Coditas!</p><br>
+    <hr>
+</body>
+<script>
+
+    
+</script>

@@ -1,0 +1,38 @@
+{
+  "name": "assigment-05-08-21",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start:dev": "nodemon index.ts hbs"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "body-parser": "^1.19.0",
+    "connect-flash": "^0.1.1",
+    "cookie-parser": "^1.4.5",
+    "dotenv": "^10.0.0",
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "express-ejs-layouts": "^2.5.1",
+    "express-session": "^1.17.2",
+    "express-validator": "^6.12.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.13.5",
+    "nodemailer": "^6.6.3"
+  },
+  "devDependencies": {
+    "@types/bcrypt": "^5.0.0",
+    "@types/connect-flash": "0.0.37",
+    "@types/ejs": "^3.0.7",
+    "@types/express": "^4.17.13",
+    "@types/express-ejs-layouts": "^2.3.2",
+    "@types/express-session": "^1.17.4",
+    "@types/jsonwebtoken": "^8.5.4",
+    "@types/node": "^16.4.12",
+    "@types/nodemailer": "^6.4.4"
+  }
+}

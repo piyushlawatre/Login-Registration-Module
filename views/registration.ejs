@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Register Page</title>
+</head>
+
+<body>
+    <!-- ------------------------------- NAV BAR ------------------------------- -->
+
+    <%- include('partials/header') -%>
+
+        <!-- --------------------------- WARNING MESSAGE --------------------------- -->
+
+        <%if (message.length>0) {%> <br>
+            <div class="alert alert-danger " role="alert">
+                <pre class="text-dark"
+                    style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: 14px;"><%= message %></pre>
+            </div>
+            <%}%>
+
+                <!-- --------------------------- WARNING MESSAGE --------------------------- -->
+
+                <div id="message" class="alert alert-danger " role="alert"
+                    style="visibility:hidden; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: 14px;">
+                </div>
+                <div id="login">
+                    <h3 class="text-center text-white pt-5"></h3>
+                    <div class="container">
+                        <div id="login-row" class="row justify-content-center align-items-center">
+                            <div id="login-column" class="col-md-6">
+                                <div id="login-box" class="col-md-12">
+
+                                    <!-- ---------------------------- Register Form ---------------------------- -->
+
+                                    <form id="login-form" class="form" action="/user/register" method="POST"
+                                        onsubmit="return passwordValidation()">
+                                        <h3 class="text-center text-info" class="text-secondary">Create Account</h3>
+                                        <br>
+                                        <div class="form-group">
+                                            <label for="email" class="text-info">Email:</label><br>
+                                            <input type="text" name="email" id="email" class="form-control" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="password" class="text-info">Password:</label><br>
+                                            <input type="password" name="password" id="password" class="form-control"
+                                                required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="confirm password" class="text-info">Confirm
+                                                Password:</label><br>
+                                            <input type="password" name="confirmpassword" id="confirmpassword"
+                                                class="form-control" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="submit" class="text-info">
+                                                <input type="submit" name="submit" class="btn  btn-success "
+                                                    value="Register">
+                                        </div>
+                                    </form>
+                                    <div id="register-link" class="text-right">
+                                        <a href="login" class="text-info">Login Here</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <%- include('partials/footer') -%>
+
+                    <!-- Optional JavaScript -->
+                    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+                    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+                        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+                        crossorigin="anonymous"></script>
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+                        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+                        crossorigin="anonymous"></script>
+                    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+                        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+                        crossorigin="anonymous"></script>
+                    <script>
+
+                        /* --------------------------- PASSWORD VALIDATION -------------------------- */
+
+                        function passwordValidation() {
+
+                            var email = document.getElementById('email').value;
+                            var password = document.getElementById('password').value;
+                            var confirmpassword = document.getElementById("confirmpassword").value;
+                            var reg = /^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,15}$/;
+
+                            if (password.length < 8) {
+                                document.getElementById("message").innerHTML = " &#9888;&#65039; Password must be of length (minimum:8 & maximum:15)"
+                                document.getElementById('message').style.visibility = "visible"
+                                return false
+                            }
+
+                            else if (password.length > 15) {
+                                document.getElementById("message").innerHTML = "&#9888;&#65039; Password must be of length (minimum:8 & maximum:15)"
+                                document.getElementById('message').style.visibility = "visible"
+                                return false
+                            }
+
+                            else if (!reg.test(password)) {
+                                document.getElementById("message").innerHTML = "&#9888;&#65039; Password must including a number & a special character & a lowercase & uppercase letter"
+                                document.getElementById('message').style.visibility = "visible"
+                                return false
+                            }
+
+                            else if (password != confirmpassword) {
+                                document.getElementById("message").innerHTML = "&#9888;&#65039; Password not matched"
+                                document.getElementById('message').style.visibility = "visible"
+                                return false
+                            }
+
+                            else {
+                                document.cookie = `emailaddress=${email}`
+                                return true
+                            }
+                        }
+                    </script>
+</body>
+
+</html>
